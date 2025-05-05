@@ -1,0 +1,64 @@
+.features {
+  padding: 40px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 30px;
+  transition:all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.feature-card:hover {
+  transform: translate(-5px);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.clock-icon,
+.chart-icon,
+.bell-icon {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  font-size: 24px;
+  
+}
+
+.clock-icon {
+  background: rgba(79, 244, 247, 0.2);
+  color: #4FF4F7;
+}
+
+.chart-icon {
+  background: rgba(247, 79, 191, 0.2);
+  color: #F74FBF;
+}
+
+.bell-icon {
+  background: rgba(138, 79, 247, 0.2);
+    color: #8A4FF7;
+}
+
+.feature-content h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.feature-content p {
+  font-size: 16px;
+  color: #d0d0d0;
+}

@@ -1,0 +1,113 @@
+/* DashboardHeader.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.dashboard-header {
+  background: rgb(255, 255, 255);
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid #f0f0f0;
+  z-index: 100;
+  position: fixed;
+  font-family: 'Inter', sans-serif;
+  width: calc(100% - 280px);
+  right: 0;
+  top: 0;
+  height: 72px;
+  
+}
+
+/* Left side - Greeting */
+.greeting-container h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.greeting-text {
+  font-weight: 500;
+}
+
+/* Center - Welcome message */
+.welcome-container {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.welcome-message {
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Right side - Actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  min-width: fit-content;
+}
+
+/* Button styles */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: #ef4444;
+  color: white;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.logout-btn:hover {
+  background-color: #dc2626;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+   
+   
+  }
+  
+  .greeting-container {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .welcome-container {
+    width: 100%;
+    text-align: center;
+    margin: 4px 0;
+  }
+  
+  .header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .greeting-container h2 {
+    font-size: 18px;
+  }
+}

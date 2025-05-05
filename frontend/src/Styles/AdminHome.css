@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.admin-container {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.admin-panel {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 20px;
+
+}
+
+.Admin-header {
+  text-align: center;
+  margin-bottom: 48px;
+  
+}
+.Admin-header h1 {
+  color: #2d3748;
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.Admin-header p {
+  color: #718096;;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.admin-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px
+}
+
+.admin-card {
+  flex: 1;
+  background-color: #f8fafc;
+  min-width: 300px;
+  border-radius: 10px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.5s;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  background-color: #edf2f7;
+  margin-bottom: 16px;
+  height: 80px;
+  width: 80px;
+  border-radius: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.card-content h2 {
+  color: #2d3748;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.card-content p {
+  color: #718096;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.admin-Btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: none;
+ 
+}
+
+.Login-btn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin: 0 auto;
+ 
+}
+
+.Login-btn:hover {
+  background-color: #4338ca;
+}
+
+.Signup-btn {
+  background-color: #4f46e5;
+  color: white;
+  padding: 20px 30px;
+  border-radius: 8px;
+  margin: 0 auto;
+}
+
+.Signup-btn:hover {
+  background-color: #4338ca;
+}

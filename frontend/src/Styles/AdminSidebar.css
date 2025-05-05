@@ -1,0 +1,150 @@
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.admin-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin-logo {
+  background-color: #e74c3c;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.admin-sidebar-header h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.admin-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: auto;
+}
+
+.admin-sidebar-menu li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  margin-bottom: 15px; 
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+
+.admin-sidebar-menu li.active {
+  background-color: #2980b9;
+  position: relative;
+  transform: translateX(3px);
+}
+
+
+.admin-sidebar-menu li.active::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 70%;
+  width: 4px;
+  background-color: #3498db;
+  border-radius: 0 2px 2px 0;
+}
+
+.admin-sidebar-menu li:hover {
+  background-color: #34495e;
+  transform: translateX(3px);
+}
+
+.admin-sidebar-menu li.active:hover {
+  background-color: #2980b9;
+}
+
+.admin-sidebar-menu li span {
+  font-size: 15px;
+}
+
+.admin-sidebar-footer {
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto; 
+}
+
+.admin-profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.admin-avatar {
+  background-color: #3498db;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.admin-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-name-label {
+  font-size: 12px;
+  color: #bdc3c7;
+  margin: 0 0 3px 0;
+}
+
+.admin-info strong {
+  font-size: 14px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .admin-sidebar {
+    width: 220px;
+    transform: translateX(-100%);
+  }
+  
+  .admin-sidebar.show {
+    transform: translateX(0);
+  }
+}
