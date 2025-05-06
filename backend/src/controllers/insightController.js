@@ -1,6 +1,53 @@
 const Expense = require('../models/Expense');
+const OpenAI = require('openai');
 
-exports.getInsights = async (req, res) => {
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+// AI-based Insight Controller
+exports.getAIInsight = async (req, res) => {
+  try {
+    const expenses = await Expense.find({ userId: req.user.id });
+
+    if (!expenses.length) {
+      return res.status(404).json({ message: 'No expenses found to analyze.' });
+    }
+
+    const formattedExpenses = expenses.map(exp => ({
+      date: exp.date.toISOString().split("T")[0],
+      category: exp.category,
+      amount: exp.amount,
+      description: exp.description
+    }));
+
+    const prompt = `Analyze the user's expense records below and provide 5 personalized financial insights or tips: ${JSON.stringify(formattedExpenses)}`;
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-3.5-turbo",
+      messages: [
+        { role: "system", content: "You are a helpful financial assistant." },
+        { role: "user", content: prompt }
+      ],
+      max_tokens: 1000,
+      temperature: 0.7
+    });
+
+    const aiInsight = response.choices[0].message.content;
+
+    res.status(200).json({
+      success: true,
+      data: aiInsight
+    });
+  } catch (error) {
+    console.error("AI Insight Error:", error.message);
+    res.status(500).json({ message: "Failed to generate AI insight." });
+  }
+};
+
+
+exports.getInsight = async (req, res) => {
   try {
     const expenses = await Expense.find({ userId: req.user.id });
 

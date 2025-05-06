@@ -1,12 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaBell } from "react-icons/fa";
 import "../styles/DashboardHeader.css";
 
 function Header() {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
   const [userName, setUserName] = useState("User");
+  const [notificationCount, setNotificationCount] = useState(0);
 
+  useEffect(() => {
+    const fetchNotification = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await fetch("http://localhost:5000/api/notification", {
+          headers: {
+            Authorization: `Bearer ${token} `,
+          },
+        });
+        const data = await res.json();
+        setNotificationCount(data.length);
+      } catch (error) {
+        console.error("Failed to load notification:", error.message);
+      }
+    };
+    fetchNotification();
+  }, []);
   // Fetch user's name on load
   useEffect(() => {
     const fetchUser = async () => {
@@ -78,6 +97,15 @@ function Header() {
       </div>
 
       <div className="header-actions">
+        <div
+          className="notification-icon"
+          onClick={() => navigate("/notification")}
+        >
+          <FaBell />
+          {notificationCount > 0 && (
+            <span className="badge">{notificationCount}</span>
+          )}{" "}
+        </div>
         <button className="btn logout-btn" onClick={handleLogout}>
           Logout
         </button>
