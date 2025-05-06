@@ -727,7 +727,9 @@ function Expense({
               <tbody>
                 {filteredExpenses.map((expense) => (
                   <tr key={expense._id}>
-                    <td>{new Date(expense.date).toLocaleDateString()}</td>
+                    <td>
+                      {new Date(expense.date).toLocaleDateString("en-GB")}
+                    </td>
                     <td className="expense-category">{expense.category}</td>
                     <td>{expense.description}</td>
                     <td className="expense-amount">

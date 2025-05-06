@@ -1,5 +1,9 @@
 const Expense = require('../models/Expense');
 const User = require('../models/User');
+const Budget = require('../models/Budget');
+const Notification = require('../models/Notification');
+const mongoose = require('mongoose');
+
 
 // @desc Get all expense for the authentication User
 // @route    GET /api/expense
@@ -55,6 +59,63 @@ exports.createExpense = async (req, res) => {
   try {
     //Save the new expense to database
     const savedExpense = await newExpense.save();
+
+    // Check fir mathing budget
+    const budget = await Budget.findOne({
+      user: req.user.id,
+      category,
+      startDate: { $lte: new Date() },
+      endDate: { $gte: new Date() },
+    });
+
+   
+    if (budget) {
+      //Calculate total expenses in this category for the budget period
+      const totalSpent = await Expense.aggregate([
+        {
+          $match: {
+            userId: new mongoose.Types.ObjectId(req.user.id),
+            category,
+            date: { $gte: budget.startDate, $lte: budget.endDate },
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            total: { $sum: "$amount" },
+          },
+        },
+      ]);
+
+      const spent = totalSpent.length > 0 ? totalSpent[0].total : 0;
+      const percentageSpent = (spent / budget.amount) * 100;
+      const roundedPercentage = Math.round(percentageSpent);
+
+
+   
+
+      //Trugger notification if thresholds are crossed
+      let message = null;
+      if (percentageSpent >= 100) {
+        message = `You have exceeded your ${category} budget.`; 
+      }
+      else if (percentageSpent >= 80) {
+        message = `You have spent ${roundedPercentage}% of your ${category} budget.`;
+
+      }
+      else if (percentageSpent >= 50) {
+        message = `You have spent ${roundedPercentage}% of your ${category} budget.`;
+      }
+
+      if (message) {
+       
+        await Notification.create({
+          user: req.user.id,
+          message,
+          type: "budget",
+        });
+      }
+    }
 
     res.status(201).json(savedExpense);
   }

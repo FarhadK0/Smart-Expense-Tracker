@@ -15,6 +15,7 @@ import AdminHome from "./Components/AdminHome";
 import AdminForgotPassword from "./Components/AdminForgotPassword";
 import AdminResetPassword from "./Components/AdminResetPassword";
 import ResetPassword from "./Components/ResetPassword";
+import Notification from "./Components/Notification";
 function App() {
   return (
     <Router>
@@ -56,6 +57,8 @@ function App() {
           path="/admin/reset-password/:token"
           element={<AdminResetPassword />}
         />
+
+        <Route path="/notification" element={<Notification />} />
       </Routes>
     </Router>
   );
