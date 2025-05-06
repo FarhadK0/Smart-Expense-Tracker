@@ -1,126 +1,261 @@
-/* Container for the whole Insight section */
-.insight-container {
-  padding: 20px;
+/* InsightStyles.css */
+
+.insight-main-container {
+  padding: 32px;
   max-width: 1200px;
-  margin-top: 60px;
-}
-
-/* Section header */
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-  color: black;
-}
-
-.section-header h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: black;
-}
-
-/* Insight Cards Grid */
-.insight-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 30px;
-  color: black;
-}
-
-/* Each Insight Card */
-.insight-card {
-  flex: 1 1 250px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
   background-color: #ffffff;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
   border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.06);
-  padding: 20px;
-  transition: 0.3s ease;
+  margin-top: 100px;
 }
 
-.card-header {
+.insight-section-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid #f5f7fa;
 }
 
-.card-icon {
+.insight-section-icon {
+  color: #4a90e2;
   width: 24px;
   height: 24px;
 }
 
-/* Color variations */
-.card-blue {
-  border-left: 4px solid #3b82f6;
-}
-.card-green {
-  border-left: 4px solid #10b981;
-}
-.card-purple {
-  border-left: 4px solid #8b5cf6;
+.insight-section-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
 }
 
-/* Value text */
-.card-value {
-  font-size: 1.4rem;
-  font-weight: bold;
+/* Summary Cards */
+.insight-summary-cards {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
 }
 
-/* Smart Saving Tips */
-.saving-tips-container {
+.insight-summary-card {
+  flex: 1;
+  padding: 24px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.insight-summary-card:hover {
+  transform: translateY(-5px);
+}
+
+.insight-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.insight-card-header h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.insight-card-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.insight-card-value {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.insight-card-blue {
+  background-image: linear-gradient(135deg, #4a90e2 0%, #5677fc 100%);
+}
+
+.insight-card-green {
+  background-image: linear-gradient(135deg, #3fc380 0%, #2ecc71 100%);
+}
+
+.insight-card-purple {
+  background-image: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+/* Tips Section */
+.insight-tips-container {
   margin-top: 40px;
-  color: black;
+  background-color: #fafafa;
+  padding: 24px;
+  border-radius: 12px;
 }
 
-.saving-tips-header {
+.insight-tips-header {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
-}
-
-.saving-tips-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 15px;
-}
-
-.tip-card {
-  background: #f9fafb;
-  border-left: 4px solid #facc15;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 6px rgba(0,0,0,0.04);
-  font-size: 0.95rem;
-}
-
-.tip-icon-container {
-  margin-bottom: 6px;
-}
-
-/* Chart Section */
-.spending-trend-container {
-  margin-top: 40px;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.05);
-}
-
-.spending-trend-container h3 {
   margin-bottom: 20px;
-  font-size: 1.4rem;
-  font-weight: 600;
 }
 
-/* Error */
-.error-container {
-  padding: 60px 20px;
-  text-align: center;
+.insight-tips-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
 }
-.error-icon {
-  color: #ef4444;
-  margin-bottom: 10px;
+
+.insight-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.insight-tip-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border-left: 5px solid #4a90e2;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.insight-tip-icon-container {
+  background-color: rgba(74, 144, 226, 0.1);
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.insight-tip-icon {
+  color: #4a90e2;
+}
+
+.insight-tip-card p {
+  margin: 0;
+  color: #555555;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+/* Spending Trend Chart */
+.insight-trend-container {
+  margin-top: 40px;
+}
+
+.insight-trend-container h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.insight-chart-container {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+}
+
+/* AI Insight Section */
+.insight-ai-section {
+  margin-top: 40px;
+  background-color: #fffcf5;
+  padding: 24px;
+  border-radius: 12px;
+  border-left: 5px solid #f39c12;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.insight-ai-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.insight-ai-header h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333;
+  margin: 0;
+}
+
+.insight-ai-content p {
+  margin-bottom: 12px;
+  color: #555555;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.insight-ai-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Error State */
+.insight-error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.insight-error-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background-color: #fff5f5;
+  border-radius: 10px;
+  border: 1px solid #feb2b2;
+}
+
+.insight-error-icon {
+  color: #e53e3e;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .insight-main-container {
+    padding: 20px;
+  }
+
+  .insight-summary-cards {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .insight-tips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .insight-summary-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .insight-main-container {
+    padding: 16px;
+  }
+  
+  .insight-section-header h2 {
+    font-size: 20px;
+  }
+  
+  .insight-card-value {
+    font-size: 18px;
+  }
 }
