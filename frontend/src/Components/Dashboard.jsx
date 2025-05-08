@@ -19,16 +19,17 @@ import {
 } from "recharts";
 import Expense from "./Expense";
 import axios from "axios";
-import { FileText, Calendar, CheckCircle, Filter } from "lucide-react";
+import { FileText, Wallet, CheckCircle, Filter } from "lucide-react";
 import "../styles/Dashboard.css";
 import Budget from "./Budget";
 import Insight from "./Insight";
 import Report from "./Report";
+import UserSetting from "./UserSetting";
 
 function RealDashboard() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const [expenses, setExpenses] = useState([]);
-  const [budgets, setBudgets] = useState([]);
+  const [income, setIncome] = useState(0);
   const [loading, setLoading] = useState(true);
   const [filteredExpenses, setFilteredExpenses] = useState([]);
 
@@ -85,17 +86,18 @@ function RealDashboard() {
     }
   };
 
-  const fetchBudgets = async () => {
+  const fetchUserProfile = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/budget", {
+      const res = await axios.get("http://localhost:5000/api/user/profile", {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setBudgets(res.data);
+      setIncome(res.data.data.income || 0);
     } catch (error) {
-      console.error("Error fetching budgets:", error.response?.data?.message);
+      console.error("Failed to fetch user profile:", error);
     }
   };
+
   // Add a new expense
   const addExpense = (newExpense) => {
     const updatedExpenses = [...expenses, newExpense];
@@ -163,7 +165,8 @@ function RealDashboard() {
   // Fetch expenses when component mounts
   useEffect(() => {
     fetchExpenses();
-    fetchBudgets();
+
+    fetchUserProfile();
   }, []);
 
   // Calculate total expenses and remaining balance
@@ -171,8 +174,8 @@ function RealDashboard() {
     (acc, expense) => acc + expense.amount,
     0
   );
-  const totalBudget = budgets.reduce((acc, budget) => acc + budget.amount, 0);
-  const remainingBalance = totalBudget - totalExpenses;
+
+  const remainingBalance = income - totalExpenses;
 
   // Prepare data for the charts (overview and categories)
   const expenseOverviewData = filteredExpenses
@@ -300,11 +303,11 @@ function RealDashboard() {
 
               <div className="summary-card">
                 <div className="summary-icon calendar-icon">
-                  <Calendar size={24} color="#818CF8" />
+                  <Wallet size={24} color="#818CF8" />
                 </div>
                 <div className="summary-details">
-                  <span>Budget</span>
-                  <h2>£{totalBudget}</h2>
+                  <span>Total Income</span>
+                  <h2>£{income}</h2>
                 </div>
               </div>
 
@@ -510,9 +513,7 @@ function RealDashboard() {
           <Report getCategoryColorClass={getCategoryColor} />
         )}
 
-        {activeTab === "settings" && (
-          <div className="tab-content">Settings</div>
-        )}
+        {activeTab === "settings" && <UserSetting />}
       </main>
     </div>
   );

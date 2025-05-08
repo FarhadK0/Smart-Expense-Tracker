@@ -25,6 +25,7 @@ app.use('/api/budget', require('./src/routes/budget'));
 app.use('/api/insight', require('./src/routes/insight'));
 app.use('/api/report', require('./src/routes/report'));
 app.use('/api/notification', require('./src/routes/notification'));
+app.use('/api/user', require('./src/routes/user'));
 
 
 

@@ -95,12 +95,14 @@ exports.login = async (req, res) => {
 // @access  Private
 exports.getMe = async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('name');
+    const user = await User.findById(req.user.id).select('name email');
 
     res.status(200).json({
       success: true,
       data: {
-        name: user.name
+        name: user.name,
+        email: user.email
+        
       }
     });
   }
@@ -213,3 +215,6 @@ exports.resetPassword = async (req, res) => {
     res.status(500).json({message:"Server Error"});
   }
 }
+
+
+
