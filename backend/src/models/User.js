@@ -24,6 +24,12 @@ const UserSchema = new mongoose.Schema({
     select: false,
   },
 
+  income: { 
+    type: Number, 
+    default: 0,
+
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,

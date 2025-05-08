@@ -1,4 +1,5 @@
 const Expense = require("../models/Expense");
+const User = require("../models/User");
 
 exports.getReport = async (req, res) => {
   try {
@@ -9,13 +10,18 @@ exports.getReport = async (req, res) => {
       return res.status(404).json({message: "No expenses found"});
     }
 
+    const user = await User.findById(userId);
+    const income = user?.income || 0;
+
+
     //Monthly breakdown
     const monthlyTotals = {};
     const categoryTotals = {};
     const categoryTrends = {};
+   
 
-    //Simulated income for now
-    const simulatedMonthlyIncome = 2500;
+    
+    
 
     expenses.forEach((expense) => {
       const { amount, category, date } = expense;
@@ -43,8 +49,9 @@ exports.getReport = async (req, res) => {
 
     const currentMonthTotal = monthlyTotals[currentMonthKey] || 0;
     const prevMonthTotal = prevMonthKey ? monthlyTotals[prevMonthKey] : 0;
-    const monthlySavings = simulatedMonthlyIncome - currentMonthTotal;
-    const savingRate = ((monthlySavings / simulatedMonthlyIncome) * 100).toFixed(1);
+    const monthlySavings = 
+    income - currentMonthTotal;
+    const savingRate = income > 0 ?((monthlySavings / income) * 100).toFixed(1) : "0.0";
 
     //Category breakdown woth percentages
     const totalExpenses = Object.values(categoryTotals).reduce((a, b) => a + b, 0);
@@ -73,9 +80,9 @@ exports.getReport = async (req, res) => {
       const expenses = monthlyTotals[monthKey];
       return {
         month: monthKey,
-        income: simulatedMonthlyIncome,
+        income,
         expenses,
-        saving: simulatedMonthlyIncome - expenses,
+        saving: income - expenses,
       };
     });
   
@@ -83,7 +90,7 @@ exports.getReport = async (req, res) => {
       success:true,
       data: {
         monthlySummary: {
-          income: simulatedMonthlyIncome,
+          income,
           expenses: currentMonthTotal,
           savings: monthlySavings,
           savingRate,
