@@ -1,0 +1,208 @@
+/* Help Page Styles */
+.help-page {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+/* Header Styles */
+.help-page-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 16px;
+}
+
+.help-page-icon {
+  width: 48px;
+  height: 48px;
+  color: #4FF4F7;
+}
+
+.help-page-header h1 {
+  margin: 0;
+  font-size: 40px;
+  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.intro {
+  color: #d0d0d0;
+  margin: 8px 0 0;
+}
+
+/* Help Page Content */
+.help-page-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Help Section Styles */
+.help-section {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.help-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.help-section-header:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.help-section-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-icon {
+  color: #4FF4F7;
+  width: 24px;
+  height: 24px;
+}
+
+.help-section-title h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.help-section-content {
+  padding: 16px;
+  margin: 0;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.help-section-content li {
+  margin-bottom: 12px;
+  color: #d0d0d0;
+  line-height: 1.6;
+  list-style-type: none;
+  position: relative;
+  padding-left: 24px;
+}
+
+.help-section-content li::before {
+  content: '•';
+  color: #4FF4F7;
+  position: absolute;
+  left: 0;
+}
+
+/* FAQ Section Styles */
+.faq-content li {
+  margin-bottom: 24px;
+}
+
+.faq-content h3 {
+  color: #4FF4F7;
+  margin-bottom: 8px;
+}
+
+.faq-content p {
+  color: #d0d0d0;
+  margin: 0;
+}
+
+/* Contact Section Styles */
+.contact-section {
+  text-align: center;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact-email {
+  color: #4FF4F7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-email:hover {
+  color: #F74FBF;
+}
+
+/* Dashboard Button Styles */
+.dashboard-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.go-to-dashboard-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.go-to-dashboard-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(79, 244, 247, 0.3);
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .help-page {
+    padding: 16px;
+  }
+
+  .help-page-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .help-page-header h1 {
+    font-size: 32px;
+  }
+
+  .help-section-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.help-section {
+  animation: fadeIn 0.5s ease-out;
+}

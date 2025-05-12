@@ -1,123 +1,195 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+/* Root Variables */
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #8b5cf6;
+  --background-light: #f9fafb;
+  --text-dark: #1f2937;
+  --text-muted: #6b7280;
+  --white: #ffffff;
+  --border-light: #e5e7eb;
+}
 
-.admin-container {
-  font-family: 'Poppins', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+.adminHome-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   min-height: 100vh;
-  padding: 32px;
+   background-color: var(--background-light);
+   color: var(--text-dark);
 }
 
-.admin-panel {
-  width: 100%;
-  background-color: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 20px;
-
+/* Header Styles */
+.adminHome-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1.5rem 1rem;
 }
 
-.Admin-header {
-  text-align: center;
-  margin-bottom: 48px;
-  
-}
-.Admin-header h1 {
-  color: #2d3748;
-  font-size: 32px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.Admin-header p {
-  color: #718096;;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.admin-cards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 32px
-}
-
-.admin-card {
-  flex: 1;
-  background-color: #f8fafc;
-  min-width: 300px;
-  border-radius: 10px;
-  padding: 32px;
+.adminHome-header-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   text-align: center;
-  position: relative;
-  border: 1px solid #e2e8f0;
-  transition: transform 0.5s;
 }
 
-.admin-card:hover {
+.adminHome-header-left {
+  margin-bottom: 1rem;
+}
+
+.adminHome-header-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.adminHome-header-subtitle {
+  font-size: 1rem;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+.adminHome-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.adminHome-header-login-button {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.adminHome-header-login-button:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.adminHome-header-login-button svg {
+  margin-right: 0.5rem;
+}
+
+/* Main Content Styles */
+.adminHome-main-content {
+  flex-grow: 1;
+  padding: 2rem 1rem;
+}
+
+.adminHome-dashboard-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Features Section */
+.adminHome-features-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.adminHome-features-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.adminHome-features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.adminHome-feature-card {
+  display: flex;
+  align-items: center;
+  background-color: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+ 
+}
+
+.adminHome-feature-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   transform: translateY(-5px);
 }
 
-.card-icon {
-  background-color: #edf2f7;
-  margin-bottom: 16px;
-  height: 80px;
-  width: 80px;
-  border-radius: 50px;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.card-content h2 {
-  color: #2d3748;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.card-content p {
-  color: #718096;
-  font-size: 15px;
-  margin-bottom: 16px;
-}
-
-.admin-Btn {
+.adminHome-feature-icon-container {
+  background-color: #e0e7ff;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  margin-right: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.2s;
-  border: none;
- 
 }
 
-.Login-btn {
-  background-color: #4f46e5;
-  color: white;
-  padding: 20px 30px;
-  border-radius: 8px;
-  margin: 0 auto;
- 
+.adminHome-feature-icon-container svg {
+  color: var(--primary-color);
 }
 
-.Login-btn:hover {
-  background-color: #4338ca;
+.adminHome-feature-content {
+  flex-grow: 1;
 }
 
-.Signup-btn {
-  background-color: #4f46e5;
-  color: white;
-  padding: 20px 30px;
-  border-radius: 8px;
-  margin: 0 auto;
+.adminHome-feature-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
 }
 
-.Signup-btn:hover {
-  background-color: #4338ca;
+.adminHome-feature-description {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+.adminHome-feature-chevron {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.adminHome-feature-card:hover .adminHome-feature-chevron {
+  transform: translateX(0.25rem);
+}
+
+/* Footer Styles */
+.adminHome-footer {
+  background-color: var(--white);
+  border-top: 1px solid var(--border-light);
+  padding: 1.5rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.adminHome-footer-text {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .adminHome-header-title {
+    font-size: 1.75rem;
+  }
+
+  .adminHome-header-subtitle {
+    font-size: 0.9rem;
+  }
 }

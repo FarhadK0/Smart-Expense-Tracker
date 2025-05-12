@@ -104,10 +104,10 @@ function AdminUsers() {
             <tr key={user._id}>
               <td>{user.name}</td>
               <td>{user.email}</td>
-              <td>{new Date(user.createdAt).toLocaleDateString()}</td>
+              <td>{new Date(user.createdAt).toLocaleDateString("en-GB")}</td>
               <td>
                 {user.lastLogin
-                  ? new Date(user.lastLogin).toLocaleString()
+                  ? new Date(user.lastLogin).toLocaleString("en-GB")
                   : "—"}
               </td>
 

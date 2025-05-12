@@ -8,7 +8,6 @@ import ProtectedRoute from "/ProtectedRoute";
 import Demo from "./Components/Demo";
 import RealDashboard from "./Components/Dashboard";
 import AdminLogin from "./Components/AdminLogin";
-import AdminSignup from "./Components/AdminSignup";
 import AdminDashboard from "./Components/AdminDashboard";
 import AdminProtectedRoute from "/AdminProtectedRoute";
 import AdminHome from "./Components/AdminHome";
@@ -16,6 +15,8 @@ import AdminForgotPassword from "./Components/AdminForgotPassword";
 import AdminResetPassword from "./Components/AdminResetPassword";
 import ResetPassword from "./Components/ResetPassword";
 import Notification from "./Components/Notification";
+import AboutPage from "./Components/AboutPage";
+import HelpPage from "./Components/Help";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/demo" element={<Demo />} />
+        <Route path="/about-page" element={<AboutPage />} />
+        <Route path="/help" element={<HelpPage />} />
         <Route
           path="/dashboard"
           element={
@@ -37,7 +40,7 @@ function App() {
         <Route path="/reset-password/:token" element={<ResetPassword />} />
 
         <Route path="/admin/login" element={<AdminLogin />} />
-        <Route path="/admin/signup" element={<AdminSignup />} />
+
         <Route
           path="/admin/forgot-password"
           element={<AdminForgotPassword />}
