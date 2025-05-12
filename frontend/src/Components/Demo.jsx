@@ -22,7 +22,6 @@ import DemoExpense from "./DemoExpense";
 import DemoBudget from "./DemoBudget";
 import DemoInsight from "./DemoInsight";
 import DemoReport from "./DemoReport";
-import DemoSetting from "./DemoSetting";
 
 function Demo() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -163,23 +162,18 @@ function Demo() {
       <aside className="demo-sidebar">
         <div className="logo">SmartEx</div>
         <nav>
-          {[
-            "dashboard",
-            "expense",
-            "budget",
-            "insight",
-            "report",
-            "setting",
-          ].map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={activeTab === tab ? "active" : ""}
-            >
-              <span className="nav-icon">{getNavIcon(tab)}</span>{" "}
-              {tab.charAt(0).toUpperCase() + tab.slice(1)}
-            </button>
-          ))}
+          {["dashboard", "expense", "budget", "insight", "report"].map(
+            (tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={activeTab === tab ? "active" : ""}
+              >
+                <span className="nav-icon">{getNavIcon(tab)}</span>{" "}
+                {tab.charAt(0).toUpperCase() + tab.slice(1)}
+              </button>
+            )
+          )}
           <Link to="/">
             <span className="nav-iocn">
               <FaArrowLeft />
@@ -210,7 +204,6 @@ function Demo() {
         {activeTab === "report" && (
           <DemoReport getCategoryColorClass={getCategoryColorClass} />
         )}
-        {activeTab === "setting" && <DemoSetting />}
       </main>
     </div>
   );

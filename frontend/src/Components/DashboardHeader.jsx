@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaBell } from "react-icons/fa";
+import { FaBell, FaQuestionCircle } from "react-icons/fa";
 import "../styles/DashboardHeader.css";
 
 function Header() {
@@ -106,6 +106,12 @@ function Header() {
             <span className="badge">{notificationCount}</span>
           )}{" "}
         </div>
+
+        <button className="btn help-btn" onClick={() => navigate("/help")}>
+          <FaQuestionCircle className="help-icon" />
+          Help
+        </button>
+
         <button className="btn logout-btn" onClick={handleLogout}>
           Logout
         </button>

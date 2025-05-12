@@ -43,6 +43,7 @@
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .admin-users-table th {
@@ -52,6 +53,7 @@
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid #e5e7eb;
+   text-align: center;
 }
 
 .admin-users-table td {

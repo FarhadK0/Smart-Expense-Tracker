@@ -1,5 +1,5 @@
 import React from "react";
-import { BarChart2, Users, DollarSign, Settings } from "lucide-react";
+import { BarChart2, Users, UserPlus, Settings } from "lucide-react";
 import "../Styles/AdminSidebar.css";
 
 function AdminSidebar({ activeSection, setActiveSection, adminName }) {
@@ -24,6 +24,13 @@ function AdminSidebar({ activeSection, setActiveSection, adminName }) {
         >
           <Users size={18} />
           <span>Users</span>
+        </li>
+        <li
+          onClick={() => setActiveSection("create")}
+          className={activeSection === "create" ? "active" : ""}
+        >
+          <UserPlus size={18} />
+          <span>Create Admin</span>
         </li>
 
         <li

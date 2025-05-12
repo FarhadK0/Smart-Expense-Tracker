@@ -191,7 +191,7 @@ function AdminOverview() {
                     <div className="date-time-info">
                       <div className="date-info">
                         <Calendar size={14} className="date-icon" />
-                        {new Date(user.createdAt).toLocaleDateString()}
+                        {new Date(user.createdAt).toLocaleDateString("en-GB")}
                       </div>
                       <div className="time-info">
                         <Clock size={14} className="time-icon" />
@@ -229,7 +229,7 @@ function AdminOverview() {
                     <div className="date-time-info">
                       <div className="date-info">
                         <Calendar size={14} className="date-icon" />
-                        {new Date(user.lastLogin).toLocaleDateString("")}
+                        {new Date(user.lastLogin).toLocaleDateString("en-GB")}
                       </div>
                       <div className="time-info">
                         <Clock size={14} className="time-icon" />

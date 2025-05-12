@@ -4,6 +4,7 @@ import AdminSidebar from "./AdminSidebar";
 import AdminOverview from "./AdminOverview";
 import AdminUsers from "./AdminUsers";
 import AdminSetting from "./AdminSetting";
+import AdminCreate from "./AdminCreate";
 
 function AdminDashboard() {
   const [adminName, setAdminName] = useState("Admin");
@@ -37,7 +38,7 @@ function AdminDashboard() {
   };
 
   const formatDate = () => {
-    return currentTime.toLocaleDateString("en-US", {
+    return currentTime.toLocaleDateString("en-GB", {
       weekday: "long",
       month: "long",
       day: "numeric",
@@ -72,6 +73,7 @@ function AdminDashboard() {
         <main className="admin-content">
           {activeSection === "overview" && <AdminOverview />}
           {activeSection === "users" && <AdminUsers />}
+          {activeSection === "create" && <AdminCreate />}
           {activeSection === "settings" && <AdminSetting />}
         </main>
       </div>

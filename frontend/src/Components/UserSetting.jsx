@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "../Styles/UserSetting.css";
 import { FaEye, FaEyeSlash, FaEdit } from "react-icons/fa";
+import "../Styles/UserSetting.css";
 
 function UserSetting() {
   const [user, setUser] = useState({ name: "", email: "", income: 0 });

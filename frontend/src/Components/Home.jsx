@@ -4,7 +4,8 @@ import Header from "./Header";
 import Footer from "./Footer";
 import MainSection from "./MainSection";
 import Features from "./Features";
-import Stats from "./Stats";
+import AboutUs from "./AboutUs";
+
 import "../Styles/Home.css";
 
 function HomePage() {
@@ -16,7 +17,7 @@ function HomePage() {
 
       <Features />
 
-      <Stats />
+      <AboutUs />
 
       <Footer />
     </div>
