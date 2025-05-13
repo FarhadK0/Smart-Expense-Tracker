@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import Header from "./DashboardHeader";
 import {
@@ -17,6 +17,7 @@ import {
   Cell,
   Label,
 } from "recharts";
+
 import Expense from "./Expense";
 import axios from "axios";
 import { FileText, Wallet, CheckCircle, Filter } from "lucide-react";
@@ -227,6 +228,19 @@ function RealDashboard() {
     return null;
   };
 
+  const BarchartTooltip = ({ active, payload, label }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="barchart-custom-tooltip">
+          <p className="barchart-label">{label}</p>
+          <p className="barchart-amount">
+            Amount: £{payload[0].value.toFixed(2)}
+          </p>
+        </div>
+      );
+    }
+  };
+
   if (loading) return <div>Loading data...</div>;
 
   return (
@@ -407,7 +421,7 @@ function RealDashboard() {
                                     <tspan
                                       x={cx}
                                       dy="1.5em"
-                                      fontSize="10"
+                                      fontSize="12"
                                       fill="#64748b"
                                     >
                                       Total
@@ -468,13 +482,7 @@ function RealDashboard() {
                         tickFormatter={(value) => `£${value}`}
                       />
                       <YAxis type="category" dataKey="name" width={100} />
-                      <Tooltip
-                        formatter={(value) => [
-                          `£${value.toFixed(2)}`,
-                          "Amount",
-                        ]}
-                        labelFormatter={(value) => `Category: ${value}`}
-                      />
+                      <Tooltip content={<BarchartTooltip />} />
                       <Legend />
                       <Bar
                         dataKey="amount"

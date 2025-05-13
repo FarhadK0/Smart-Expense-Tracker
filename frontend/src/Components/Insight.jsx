@@ -37,6 +37,11 @@ function Insight() {
     };
 
     const fetchAIInsights = async () => {
+      const cachedAI = localStorage.getItem("aiInsight");
+      if (cachedAI) {
+        setAiInsight(cachedAI);
+        return;
+      }
       try {
         const response = await fetch("http://localhost:5000/api/insight/ai", {
           headers: { Authorization: `Bearer ${token}` },

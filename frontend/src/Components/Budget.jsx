@@ -285,7 +285,15 @@ function Budget() {
                     color: "black",
                   }}
                 >
-                  {percentage}% used
+                  <div
+                    className={`budget-percentage-text ${
+                      document.body.classList.contains("dark-mode")
+                        ? "dark"
+                        : ""
+                    }`}
+                  >
+                    {percentage}% used
+                  </div>
                 </div>
 
                 <div className="budget-actions">

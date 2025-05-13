@@ -163,12 +163,26 @@ function Report({ getCategoryColorClass }) {
                         item.category
                       )}`}
                     >
-                      {item.category === "Food" && <FaUtensils />}
-                      {item.category === "Transport" && <FaCar />}
-                      {item.category === "Entertainment" && <FaFilm />}
-                      {item.category === "Shopping" && <FaShoppingBag />}
-                      {item.category === "Housing" && <FaHome />}
-                      {item.category === "Utilities" && <FaLightbulb />}
+                      {item.category.toLowerCase().includes("bill") ? (
+                        <FaLightbulb />
+                      ) : item.category.toLowerCase().includes("rent") ? (
+                        <FaHome />
+                      ) : item.category.toLowerCase().includes("food") ? (
+                        <FaUtensils />
+                      ) : item.category.toLowerCase().includes("transport") ? (
+                        <FaCar />
+                      ) : item.category
+                          .toLowerCase()
+                          .includes("entertainment") ? (
+                        <FaFilm />
+                      ) : item.category.toLowerCase().includes("shopping") ? (
+                        <FaShoppingBag />
+                      ) : item.category.toLowerCase().includes("utility") ||
+                        item.category.toLowerCase().includes("electric") ? (
+                        <FaLightbulb />
+                      ) : (
+                        <FaFileAlt /> // default/fallback icon
+                      )}
                     </div>
                     <h5>{item.category}</h5>
                     <div className="category-amount">£{item.amount}</div>
