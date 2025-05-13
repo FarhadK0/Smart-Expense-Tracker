@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaBell, FaQuestionCircle } from "react-icons/fa";
+import { FaBell, FaQuestionCircle, FaMoon, FaSun } from "react-icons/fa";
+import { DarkModeContext } from "../Context/DarkMode";
 import "../styles/DashboardHeader.css";
 
 function Header() {
@@ -8,6 +9,7 @@ function Header() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [userName, setUserName] = useState("User");
   const [notificationCount, setNotificationCount] = useState(0);
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   useEffect(() => {
     const fetchNotification = async () => {
@@ -107,6 +109,9 @@ function Header() {
           )}{" "}
         </div>
 
+        <button className="btn theme-toggle-btn" onClick={toggleDarkMode}>
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
         <button className="btn help-btn" onClick={() => navigate("/help")}>
           <FaQuestionCircle className="help-icon" />
           Help

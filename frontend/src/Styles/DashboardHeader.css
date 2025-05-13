@@ -115,6 +115,15 @@
   background-color: #dc2626;
 }
 
+.theme-toggle-btn {
+  
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 0 10px;
+ background-color: white;
+}
+
 
 
 /* Responsive design */

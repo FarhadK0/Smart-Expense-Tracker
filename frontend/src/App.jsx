@@ -17,6 +17,8 @@ import ResetPassword from "./Components/ResetPassword";
 import Notification from "./Components/Notification";
 import AboutPage from "./Components/AboutPage";
 import HelpPage from "./Components/Help";
+import { DarkModeProvider } from "./Context/DarkMode";
+import "./App.css";
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <RealDashboard />
+              <DarkModeProvider>
+                <RealDashboard />
+              </DarkModeProvider>
             </ProtectedRoute>
           }
         />
