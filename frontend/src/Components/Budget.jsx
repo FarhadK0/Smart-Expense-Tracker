@@ -135,6 +135,7 @@ function Budget() {
         const expDate = new Date(exp.date);
         return (
           exp.category?.toLowerCase() === category &&
+          exp.status === "completed" &&
           expDate >= start &&
           expDate <= end
         );

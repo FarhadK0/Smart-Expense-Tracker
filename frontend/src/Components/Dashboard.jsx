@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./DashboardHeader";
+
 import {
   LineChart,
   Line,
@@ -17,7 +16,8 @@ import {
   Cell,
   Label,
 } from "recharts";
-
+import Sidebar from "./Sidebar";
+import Header from "./DashboardHeader";
 import Expense from "./Expense";
 import axios from "axios";
 import { FileText, Wallet, CheckCircle, Filter } from "lucide-react";
@@ -340,7 +340,7 @@ function RealDashboard() {
             <div className="charts-section">
               <div className="chart-card">
                 <h3>Expense Timeline{isFilterActive ? "(Filtered) " : ""}</h3>
-                <div className="chart-container">
+                <div className="chart-container ">
                   {expenseOverviewData.length > 0 ? (
                     <ResponsiveContainer width="100%" height={200}>
                       <LineChart

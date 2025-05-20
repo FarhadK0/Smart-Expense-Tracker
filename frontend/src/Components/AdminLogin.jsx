@@ -97,7 +97,7 @@ function AdminLogin() {
 
             <button type="submit" className="login-button" disabled={isLoading}>
               {isLoading ? (
-                <span className="loading-spinner">
+                <span className="admin-loading-spinner">
                   <FaSpinner className="spinner-icon" /> Loading...
                 </span>
               ) : (

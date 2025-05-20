@@ -49,6 +49,7 @@ exports.getReport = async (req, res) => {
 
     const currentMonthTotal = monthlyTotals[currentMonthKey] || 0;
     const prevMonthTotal = prevMonthKey ? monthlyTotals[prevMonthKey] : 0;
+    
     const monthlySavings = 
     income - currentMonthTotal;
     const savingRate = income > 0 ?((monthlySavings / income) * 100).toFixed(1) : "0.0";
