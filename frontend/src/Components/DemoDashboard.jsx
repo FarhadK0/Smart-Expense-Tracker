@@ -12,11 +12,8 @@ import {
 function DemoDashboard({
   selectedMonth,
   setSelectedMonth,
-  insights,
   sampleExpenses,
-  getCategoryClass,
   getStatusBadgeClass,
-  setActiveTab,
 }) {
   return (
     <div className="dashboard-container">
@@ -102,11 +99,7 @@ function DemoDashboard({
           <tbody>
             {sampleExpenses.map((expense) => (
               <tr key={expense.id}>
-                <td>
-                  <span className={getCategoryClass(expense.category)}>
-                    {expense.category}
-                  </span>
-                </td>
+                <td>{expense.category}</td>
                 <td className="description-cell">
                   <div>{expense.description}</div>
                   <div className="payment-method">{expense.paymentMethod}</div>

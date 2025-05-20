@@ -155,15 +155,15 @@
   letter-spacing: 1px;
 }
 
-/* UPDATED: Main Content Styling with margin to accommodate fixed sidebar */
+
 .demo-main {
   flex: 1;
   display: flex;
   flex-direction: column;
   background: var(--neutral-50);
   overflow-y: auto;
-  margin-left: 280px; /* Added to make space for the fixed sidebar */
-  width: calc(100% - 280px); /* Added to ensure content width is correct */
+  margin-left: 280px; 
+  width: calc(100% - 280px); 
 }
 
 .demo-header {

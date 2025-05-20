@@ -76,6 +76,7 @@ exports.createExpense = async (req, res) => {
           $match: {
             userId: new mongoose.Types.ObjectId(req.user.id),
             category,
+            status: "completed",
             date: { $gte: budget.startDate, $lte: budget.endDate },
           },
         },

@@ -1,3 +1,4 @@
+// Import necessary modules
 const Admin = require('../models/admin');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
@@ -16,7 +17,7 @@ exports.adminLogin = async (req, res) => {
     return res.status(400).json({ success: false, message: 'Please provide email and password'});
   }
 
-  //Check for admin
+  //Check if admin with given email exists (select password field explicitly)
   const admin = await Admin.findOne({ email }).select('+password');
 
   if (!admin) {
@@ -28,11 +29,10 @@ exports.adminLogin = async (req, res) => {
 
  
 
-  //check password
+  //Compare submitted password with hashed password in database
   const isMatch = await admin.matchPassword(password);
 
-  
-
+  //If password does not match, return error
   if (!isMatch) {
     return res.status(401).json({ success: false, message: 'Incorrect email or password. Please try again'});
 
@@ -40,12 +40,12 @@ exports.adminLogin = async (req, res) => {
 
   //Update lastLogin
   admin.lastLogin = new Date();
-  console.log("Updating lastLogin for admin:", admin.email);
   await admin.save();
  
-  //Create Token
+  //Generate JWT token for authentication
   const token = admin.getSignedJwtToken();
 
+  // Send success response with token and admin data
   res.status(200).json({
     success: true,
     token,
@@ -59,6 +59,11 @@ exports.adminLogin = async (req, res) => {
 
 };
 
+
+//@desc    Register a new admin
+//@route   POST /api/admin/register
+//@access  Public
+
 exports.adminRegister = async (req, res) => {
   try {
     const {name, email, password} = req.body;
@@ -70,12 +75,13 @@ exports.adminRegister = async (req, res) => {
       return res.status(400).json({ message: "Admin with this email already exists"});
     }
 
-    //Create Admin
+    //Create a new Admin
     const admin = await Admin.create({ name, email, password });
 
-    //Generate token
+    //Generate JWT token
     const token = admin.getSignedJwtToken();
 
+    //Return token and basic admin details
     res.status(201).json({
       success: true,
       token,
@@ -93,11 +99,14 @@ exports.adminRegister = async (req, res) => {
 };
 
 
-
+//@desc    Send reset password link to admin
+//@route   POST /api/admin/forgot-password
+//@access  Public
 exports.forgotAdminPassword = async (req, res) => {
   const { email } = req.body;
 
   try {
+    // Find admin by email
     const admin = await Admin.findOne({ email });
 
     if (!admin) {
@@ -132,11 +141,15 @@ exports.forgotAdminPassword = async (req, res) => {
   }
 };
 
+//@desc    Reset admin password using token
+//@route   PUT /api/admin/reset-password/:token
+//@access  Public
 exports.resetAdminPassword = async (req, res) => {
   const { token } = req.params;
   const { password } = req.body;
 
   try {
+    // Hash the token to compare with the stored hashed token
     const hashedToken = crypto.createHash("sha256").update(token).digest("hex");
 
     const admin = await Admin.findOne({

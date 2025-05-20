@@ -166,7 +166,7 @@
   cursor: not-allowed;
 }
 
-.loading-spinner {
+.admin-loading-spinner {
   display: flex;
   align-items: center;
   justify-content: center;

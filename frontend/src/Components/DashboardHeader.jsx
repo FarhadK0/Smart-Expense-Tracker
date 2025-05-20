@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaBell, FaQuestionCircle, FaMoon, FaSun } from "react-icons/fa";
 import { DarkModeContext } from "../Context/DarkMode";
-import "../styles/DashboardHeader.css";
+import "../Styles/DashboardHeader.css";
 
 function Header() {
   const navigate = useNavigate();
@@ -10,6 +10,7 @@ function Header() {
   const [userName, setUserName] = useState("User");
   const [notificationCount, setNotificationCount] = useState(0);
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const fetchNotification = async () => {
@@ -99,6 +100,7 @@ function Header() {
       </div>
 
       <div className="header-actions">
+        {/* Notification (always visible) */}
         <div
           className="notification-icon"
           onClick={() => navigate("/notification")}
@@ -106,21 +108,47 @@ function Header() {
           <FaBell />
           {notificationCount > 0 && (
             <span className="badge">{notificationCount}</span>
-          )}{" "}
+          )}
         </div>
 
-        <button className="btn theme-toggle-btn" onClick={toggleDarkMode}>
-          {darkMode ? <FaSun /> : <FaMoon />}
-        </button>
-        <button className="btn help-btn" onClick={() => navigate("/help")}>
-          <FaQuestionCircle className="help-icon" />
-          Help
+        {/* Hamburger for mobile */}
+        <button
+          className="menu-toggle-btn"
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          ☰
         </button>
 
-        <button className="btn logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
+        {/* Desktop Only Actions */}
+        <div className="desktop-actions">
+          <button className="btn theme-toggle-btn" onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <button className="btn help-btn" onClick={() => navigate("/help")}>
+            <FaQuestionCircle className="help-icon" />
+            Help
+          </button>
+          <button className="btn logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown actions */}
+      {menuOpen && (
+        <div className="mobile-dropdown">
+          <button className="btn theme-toggle-btn" onClick={toggleDarkMode}>
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <button className="btn help-btn" onClick={() => navigate("/help")}>
+            <FaQuestionCircle />
+            <span>Help</span>
+          </button>
+          <button className="btn logout-btn" onClick={handleLogout}>
+            <span>Logout</span>
+          </button>
+        </div>
+      )}
     </header>
   );
 }
