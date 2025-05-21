@@ -72,7 +72,7 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(401).json({ 
         success: false,
-        message: 'Invalid credentials' });
+        message: 'Invalid Password or Email' });
     }
 
     user.lastLogin = new Date();

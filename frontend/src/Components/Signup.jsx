@@ -58,6 +58,16 @@ function Signup() {
     }
   };
 
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError("");
+      }, 4000); // Error will disappear after 4 seconds
+
+      return () => clearTimeout(timer); // Cleanup in case component unmounts early
+    }
+  }, [error]);
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };

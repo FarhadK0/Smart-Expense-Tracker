@@ -1,7 +1,13 @@
 // Login.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
+import {
+  MdEmail,
+  MdLock,
+  MdVisibility,
+  MdVisibilityOff,
+  MdArrowBack,
+} from "react-icons/md";
 import "../Styles/Login.css";
 import AuthService from "../../Services/AuthService";
 
@@ -15,7 +21,17 @@ function Login() {
   const location = useLocation();
 
   // Check if there's a message from registration
-  const message = location.state?.message || "";
+  const [message, setMessage] = useState(location.state?.message || "");
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("");
+      }, 4000); // Success message disappears after 4 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   useEffect(() => {
     // If user is already logged in, redirect to dashboard
@@ -23,6 +39,16 @@ function Login() {
       navigate("/dashboard");
     }
   }, [navigate]);
+
+  useEffect(() => {
+    if (error) {
+      const timer = setTimeout(() => {
+        setError("");
+      }, 4000); // Error will disappear after 4 seconds
+
+      return () => clearTimeout(timer); // Cleanup in case component unmounts early
+    }
+  }, [error]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -138,7 +164,10 @@ function Login() {
           </div>
 
           <div className="home-link">
-            <Link to="/">← Back to Home</Link>
+            <Link to="/">
+              {" "}
+              <MdArrowBack /> Back to Home
+            </Link>
           </div>
         </div>
       </div>
