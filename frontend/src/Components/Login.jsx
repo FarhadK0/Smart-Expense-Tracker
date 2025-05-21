@@ -21,7 +21,17 @@ function Login() {
   const location = useLocation();
 
   // Check if there's a message from registration
-  const message = location.state?.message || "";
+  const [message, setMessage] = useState(location.state?.message || "");
+
+  useEffect(() => {
+    if (message) {
+      const timer = setTimeout(() => {
+        setMessage("");
+      }, 4000); // Success message disappears after 4 seconds
+
+      return () => clearTimeout(timer);
+    }
+  }, [message]);
 
   useEffect(() => {
     // If user is already logged in, redirect to dashboard
