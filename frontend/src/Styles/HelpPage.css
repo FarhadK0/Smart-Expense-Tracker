@@ -1,55 +1,57 @@
-/* Help Page Styles */
+
 .help-page {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #ffffff; 
+  color: #2c3e50;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   min-height: 100vh;
   padding: 32px;
 }
 
-/* Header Styles */
+
 .help-page-header {
   display: flex;
   align-items: center;
   margin-bottom: 32px;
   gap: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid #f0f0f0; 
   padding-bottom: 16px;
 }
 
 .help-page-icon {
   width: 48px;
   height: 48px;
-  color: #4FF4F7;
+  color: #3498db;
 }
 
 .help-page-header h1 {
   margin: 0;
   font-size: 40px;
-  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%); 
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
 }
 
 .intro {
-  color: #d0d0d0;
+  color: #555555; 
   margin: 8px 0 0;
 }
 
-/* Help Page Content */
+
 .help-page-content {
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* Help Section Styles */
+
 .help-section {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #f8f9fa; 
+  border: 1px solid #eaeaea; 
   border-radius: 12px;
   margin-bottom: 16px;
   overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); 
 }
 
 .help-section-header {
@@ -62,7 +64,7 @@
 }
 
 .help-section-header:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(52, 152, 219, 0.05); 
 }
 
 .help-section-title {
@@ -72,7 +74,7 @@
 }
 
 .section-icon {
-  color: #4FF4F7;
+  color: #3498db; 
   width: 24px;
   height: 24px;
 }
@@ -80,18 +82,20 @@
 .help-section-title h2 {
   margin: 0;
   font-size: 20px;
-  color: #ffffff;
+  color: #2c3e50; 
+  font-weight: 600;
 }
 
 .help-section-content {
   padding: 16px;
   margin: 0;
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #ffffff; 
+  border-top: 1px solid #eaeaea; 
 }
 
 .help-section-content li {
   margin-bottom: 12px;
-  color: #d0d0d0;
+  color: #555555; 
   line-height: 1.6;
   list-style-type: none;
   position: relative;
@@ -100,27 +104,27 @@
 
 .help-section-content li::before {
   content: '•';
-  color: #4FF4F7;
+  color: #3498db; 
   position: absolute;
   left: 0;
 }
 
-/* FAQ Section Styles */
+
 .faq-content li {
   margin-bottom: 24px;
 }
 
 .faq-content h3 {
-  color: #4FF4F7;
+  color: #3498db; 
   margin-bottom: 8px;
 }
 
 .faq-content p {
-  color: #d0d0d0;
+  color: #555555; 
   margin: 0;
 }
 
-/* Contact Section Styles */
+
 .contact-section {
   text-align: center;
 }
@@ -133,17 +137,17 @@
 }
 
 .contact-email {
-  color: #4FF4F7;
+  color: #3498db; 
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .contact-email:hover {
-  color: #F74FBF;
+  color: #2980b9; 
 }
 
-/* Dashboard Button Styles */
+
 .dashboard-button-container {
   display: flex;
   justify-content: center;
@@ -156,25 +160,44 @@
   justify-content: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  background: #3498db; 
   color: #ffffff;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px; 
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .go-to-dashboard-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(79, 244, 247, 0.3);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2); 
+  background: #2980b9; 
 }
 
 .button-icon {
   width: 20px;
   height: 20px;
 }
+
+
+
+.help-section {
+  animation: fadeIn 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+.help-section:nth-child(1) { animation-delay: 0.1s; }
+.help-section:nth-child(2) { animation-delay: 0.2s; }
+.help-section:nth-child(3) { animation-delay: 0.3s; }
+.help-section:nth-child(4) { animation-delay: 0.4s; }
+.help-section:nth-child(5) { animation-delay: 0.5s; }
+
+
+
+
+
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
@@ -197,12 +220,4 @@
   }
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
-.help-section {
-  animation: fadeIn 0.5s ease-out;
-}

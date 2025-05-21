@@ -1,9 +1,8 @@
-/* About Us Styles */
 .about-us-section {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #2c3e50;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  padding: 4rem 0;
+  padding: 64px 0; 
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -12,46 +11,48 @@
 .about-us-container {
   width: 100%;
   max-width: 1200px;
-  padding: 0 1rem;
+  padding: 0 16px; 
   margin-bottom: auto;
 }
 
 .about-us-content {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #f8f9fa;
+  border: 1px solid #eaeaea;
   border-radius: 16px;
-  padding: 4rem;
+  padding: 64px;
   text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
 .about-us-content h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  font-size: 40px; 
+  margin-bottom: 32px; 
+  background: linear-gradient(90deg, #3498db 0%, #2c3e50 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 700;
 }
 
 .about-us-description {
-  margin-bottom: 4rem;
+  margin-bottom: 64px; 
 }
 
 .about-us-description p {
-  font-size: 1.125rem;
-  color: #d0d0d0;
+  font-size: 18px;
+  color: #555555;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 16px; 
 }
 
 .about-us-btn {
   display: inline-block;
-  padding: 1rem 2rem;
-  background: linear-gradient(90deg, #4FF4F7 0%, #F74FBF 100%);
+  padding: 16px 32px; 
+  background: #3498db;
   color: #ffffff;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
+  border-radius: 30px;
+  font-size: 16px; 
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -61,7 +62,8 @@
 
 .about-us-btn:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 20px rgba(52, 152, 219, 0.2);
+  background: #2980b9;
 }
 
 .about-us-btn:active {
@@ -71,30 +73,14 @@
 /* Responsive Adjustments */
 @media (max-width: 768px) {
   .about-us-content {
-    padding: 2rem 1rem;
+    padding: 32px 16px; 
   }
-
+  
   .about-us-content h2 {
-    font-size: 2rem;
+    font-size: 32px; 
   }
   
   .about-us-description p {
-    font-size: 1rem;
+    font-size: 16px; 
   }
-}
-
-/* Accessibility and Animation */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.about-us-content {
-  animation: fadeIn 1s ease-out;
-}
-
-/* Focus States */
-.about-us-btn:focus {
-  outline: 2px solid #4FF4F7;
-  outline-offset: 4px;
 }
