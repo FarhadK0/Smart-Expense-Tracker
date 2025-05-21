@@ -51,7 +51,7 @@
   min-height: 100vh;
 }
 
-/* UPDATED: Sidebar Styling with fixed position */
+
 .demo-sidebar {
   width: 280px;
   background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 100%);
@@ -80,6 +80,7 @@
 }
 
 .demo-sidebar .logo {
+ 
   font-size: 24px;
   font-weight: 700;
   text-align: center;
@@ -89,6 +90,10 @@
   justify-content: center;
   padding: 20px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  background: none;
+   -webkit-background-clip: initial;
+     -webkit-text-fill-color: white;
 }
 
 .demo-sidebar .logo::before {

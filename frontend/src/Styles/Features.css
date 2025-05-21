@@ -1,33 +1,37 @@
 .features {
-  padding: 40px 0;
+  padding: 60px 0; 
+  background-color: #ffffff; 
 }
 
 .features-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 25px;
+  max-width: 1000px; 
+  margin: 0 auto; 
 }
 
 .feature-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8f9fa;
   border-radius: 16px;
   padding: 30px;
-  transition:all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid #eaeaea;
   display: flex;
   align-items: center;
   gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 .feature-card:hover {
-  transform: translate(-5px);
-  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px);
+  border-color: #3498db;
+  box-shadow: 0 8px 20px rgba(52, 152, 219, 0.1);
 }
 
 .clock-icon,
 .chart-icon,
 .bell-icon {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,30 +39,32 @@
   height: 60px;
   border-radius: 12px;
   font-size: 24px;
-  
 }
 
 .clock-icon {
-  background: rgba(79, 244, 247, 0.2);
-  color: #4FF4F7;
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
 }
 
 .chart-icon {
-  background: rgba(247, 79, 191, 0.2);
-  color: #F74FBF;
+  background: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
 }
 
 .bell-icon {
-  background: rgba(138, 79, 247, 0.2);
-    color: #8A4FF7;
+  background: rgba(155, 89, 182, 0.1);
+  color: #9b59b6;
 }
 
 .feature-content h3 {
   font-size: 24px;
   margin-bottom: 10px;
+  color: #2c3e50; 
 }
 
 .feature-content p {
   font-size: 16px;
-  color: #d0d0d0;
+  color: #555555;
+  line-height: 1.6;
 }
+
