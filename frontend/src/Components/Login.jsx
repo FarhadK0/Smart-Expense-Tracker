@@ -1,7 +1,13 @@
 // Login.jsx
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
+import {
+  MdEmail,
+  MdLock,
+  MdVisibility,
+  MdVisibilityOff,
+  MdArrowBack,
+} from "react-icons/md";
 import "../Styles/Login.css";
 import AuthService from "../../Services/AuthService";
 
@@ -148,7 +154,10 @@ function Login() {
           </div>
 
           <div className="home-link">
-            <Link to="/">← Back to Home</Link>
+            <Link to="/">
+              {" "}
+              <MdArrowBack /> Back to Home
+            </Link>
           </div>
         </div>
       </div>
