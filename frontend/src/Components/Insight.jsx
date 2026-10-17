@@ -42,12 +42,14 @@ function Insight() {
         setAiInsight(cachedAI);
         return;
       }
+
       try {
         const response = await fetch("http://localhost:5000/api/insight/ai", {
           headers: { Authorization: `Bearer ${token}` },
         });
         if (response.ok) {
           const data = await response.json();
+          localStorage.setItem("aiInsight", data.data);
           setAiInsight(data.data);
         }
       } catch (err) {

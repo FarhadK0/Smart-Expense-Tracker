@@ -63,6 +63,7 @@ function Header() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("aiInsight");
     navigate("/login");
   };
 
